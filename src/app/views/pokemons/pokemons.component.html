@@ -1,0 +1,70 @@
+<div class="text-center">
+    <h2 class="fw-bold mb-2 text-uppercase">Pokemon</h2>
+</div>
+
+<section class=" d-flex justify-content-center align-items-center">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+                <div class="input-group mb-4">
+                    <input type="search" class="form-control rounded" [(ngModel)]="namePokemon" (blur)="getPokemon()"
+                        placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+                    <button type="button" (click)="getPokemon()" class="btn btn-outline-primary">Search</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section style="background-color: #eee;" *ngIf="namePokemon==''">
+    <div class="text-center container py-5">
+
+        <div class="row">
+            <div class="col-lg-4 col-md-12 mb-4" *ngFor="let item of pokemons">
+                <div class="card">
+                    <div class="bg-image hover-zoom ripple ripple-surface ripple-surface-light"
+                        data-mdb-ripple-color="light">
+                        <img src="{{item.image}}" class="w-100" />
+                        <div class="hover-overlay">
+                            <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <a href="" class="text-reset">
+                            <h5 class="card-title mb-3">{{item.name}}</h5>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</section>
+
+
+<section style="background-color: #eee;" *ngIf="namePokemon!=''">
+    <div class="text-center container py-5">
+
+        <div class="row">
+            <div class="col-lg-4 col-md-12 mb-4" *ngFor="let item of filtersPokemons">
+                <div class="card">
+                    <div class="bg-image hover-zoom ripple ripple-surface ripple-surface-light"
+                        data-mdb-ripple-color="light">
+                        <img src="{{item.image}}" class="w-100" />
+                        <div class="hover-overlay">
+                            <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <a href="" class="text-reset">
+                            <h5 class="card-title mb-3">{{item.name}}</h5>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</section>
